@@ -37,7 +37,7 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Courie
 .brand { text-align: center; margin-bottom: 12px; }
 .brand h1 { margin: 0; font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif; font-size: 74px; line-height: 0.9; letter-spacing: 1px; }
 .brand p { margin: 8px 0 0; text-transform: uppercase; letter-spacing: 6px; font-size: 16px; }
-.layout { display: grid; grid-template-columns: 430px 1fr; gap: 14px; }
+.layout { display: grid; grid-template-columns: 400px 1fr; gap: 14px; }
 .panel { border: 3px solid var(--line); background: var(--panel); padding: 18px; }
 .left h2 { margin: 0 0 10px; font-size: 24px; text-align: center; }
 #pfp-preview { width: 100%; aspect-ratio: 1 / 1; border: 2px solid var(--line); display: block; background: #c5b7ad; overflow: hidden; position: relative; }
@@ -55,12 +55,12 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Courie
 .gallery-shell { min-height: 0; display: flex; flex-direction: column; }
 .filter-panel { border: 2px solid var(--line); background: #e7dfd9; padding: 10px; }
 .filter-panel h3 { margin: 0 0 10px; text-transform: uppercase; font-size: 18px; border-bottom: 2px solid var(--line); padding-bottom: 8px; }
-.filter-controls { display: grid; gap: 8px; }
+.filter-controls { display: grid; gap: 8px; } 
 .filter-row label { display: block; font-size: 12px; text-transform: uppercase; font-weight: 700; margin-bottom: 4px; }
 .filter-row select { width: 100%; background: #d8cbc3; border: 1px solid #8f7c74; color: var(--ink); font-family: inherit; font-size: 12px; padding: 6px; }
 .filter-btn { margin-top: 10px; width: 100%; border: none; border-radius: 5px; background: var(--btn); color: #f2e7e2; font-family: inherit; font-size: 14px; text-transform: uppercase; font-weight: 700; padding: 10px 8px; cursor: pointer; }
 .filter-btn:hover { background: var(--btn-hover); }
-.gallery { border: 2px solid var(--line); background: var(--gallery-bg); padding: 3px; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 3px; height: 800px; overflow-y: auto; overflow-x: hidden; align-content: start; }
+.gallery { border: 2px solid var(--line); background: var(--gallery-bg); padding: 3px; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 3px; height: 905px; overflow-y: auto; overflow-x: hidden; align-content: start; }
 .gallery-item { position: relative; border: 1px solid var(--gallery-tile-line); background: var(--gallery-tile-bg); width: 100%; height: 0; padding-bottom: 100%; overflow: hidden; }
 .gallery-item > .library-tile, .gallery-item > .library-tile-frame, .gallery-item > .tooltip { position: absolute; inset: 0; }
 .library-tile { width: 100%; height: 100%; display: block; object-fit: cover; }
@@ -72,14 +72,14 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Courie
 .page-btn:last-child { border-right: none; }
 .page-btn:hover:not(:disabled) { background: #492f2b; }
 .page-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.golden-canvas { margin-top: 10px; background: #c3bbb3; border: 3px solid var(--line); padding: 8px; }
-.golden-canvas iframe { width: 100%; height: 1100px; border: 2px solid var(--line); display: block; background: #c3bbb3; }
+.golden-canvas { margin-top: 12px; background: #c3bbb3; border: 3px solid var(--line); padding: 8px; }
+.golden-canvas iframe { width: 100%; height: 1250px; border: 2px solid var(--line); display: block; background: #c3bbb3; }
 .footer { text-align: center; margin-top: 16px; font-size: 34px; }
 @media (max-width: 1000px) {
   .layout { grid-template-columns: 1fr; }
   .right-layout { grid-template-columns: 1fr; }
   .gallery-shell { min-height: 560px; }
-  .gallery { height: 460px; }
+  .gallery { height: 600px; }
   .hero-banner { height: min(66vw, 420px); }
   .hero-copy { top: 10%; }
   .attrs-grid { font-size: 22px; }
