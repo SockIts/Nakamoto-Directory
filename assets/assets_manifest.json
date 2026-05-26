@@ -41,6 +41,13 @@
         "Alth0as -> Alth0tas",
         "TonyNL -> Tony NL"
       ]
+    },
+    "stamp_number_sync_by_cpid": {
+      "checked": 420,
+      "updated": 16,
+      "errors": 0,
+      "run_at": "2026-05-26T02:57:36.448Z",
+      "source": "https://stampchain.io/api/v2/stamps/{CPID}"
     }
   },
   "assets": [
@@ -4802,7 +4809,7 @@
       "issuance": "21",
       "score": "95c",
       "rarity_score": "Epic",
-      "stamp_number": "1216333"
+      "stamp_number": "1216335"
     },
     {
       "index": "Index08",
@@ -4818,7 +4825,7 @@
       "issuance": "21",
       "score": "94c",
       "rarity_score": "Epic",
-      "stamp_number": "1218893"
+      "stamp_number": "1218895"
     },
     {
       "index": "Index08",
@@ -4834,7 +4841,7 @@
       "issuance": "30",
       "score": "92c",
       "rarity_score": "Epic",
-      "stamp_number": "1221273"
+      "stamp_number": "1221275"
     },
     {
       "index": "Index08",
@@ -4850,7 +4857,7 @@
       "issuance": "1",
       "score": "90c",
       "rarity_score": "Rare",
-      "stamp_number": "1215418"
+      "stamp_number": "1215420"
     },
     {
       "index": "Index08",
@@ -4866,7 +4873,7 @@
       "issuance": "21",
       "score": "90c",
       "rarity_score": "Rare",
-      "stamp_number": "1208766"
+      "stamp_number": "1208767"
     },
     {
       "index": "Index08",
@@ -4966,7 +4973,7 @@
       "issuance": "1",
       "score": "88c",
       "rarity_score": "Rare",
-      "stamp_number": "1208710"
+      "stamp_number": "1208711"
     },
     {
       "index": "Index08",
@@ -4982,7 +4989,7 @@
       "issuance": "1",
       "score": "87c",
       "rarity_score": "Rare",
-      "stamp_number": "1208734"
+      "stamp_number": "1208735"
     },
     {
       "index": "Index08",
@@ -5078,7 +5085,7 @@
       "issuance": "21",
       "score": "79c",
       "rarity_score": "Common",
-      "stamp_number": "1225162"
+      "stamp_number": "1225164"
     },
     {
       "index": "Index08",
@@ -5498,7 +5505,7 @@
       "issuance": "21",
       "score": "90c",
       "rarity_score": "Rare",
-      "stamp_number": "1251632"
+      "stamp_number": "1251634"
     },
     {
       "index": "Index09",
@@ -5514,7 +5521,7 @@
       "issuance": "21",
       "score": "90c",
       "rarity_score": "Rare",
-      "stamp_number": "1265676"
+      "stamp_number": "1265678"
     },
     {
       "index": "Index09",
@@ -5578,7 +5585,7 @@
       "issuance": "1",
       "score": "88c",
       "rarity_score": "Rare",
-      "stamp_number": "1200450"
+      "stamp_number": "1200451"
     },
     {
       "index": "Index09",
@@ -5594,7 +5601,7 @@
       "issuance": "21",
       "score": "88c",
       "rarity_score": "Rare",
-      "stamp_number": "1221457"
+      "stamp_number": "1221459"
     },
     {
       "index": "Index09",
@@ -5626,7 +5633,7 @@
       "issuance": "1",
       "score": "86c",
       "rarity_score": "Rare",
-      "stamp_number": "1212311"
+      "stamp_number": "1212313"
     },
     {
       "index": "Index09",
@@ -5658,7 +5665,7 @@
       "issuance": "42",
       "score": "84c",
       "rarity_score": "Uncommon",
-      "stamp_number": "1244605"
+      "stamp_number": "1244607"
     },
     {
       "index": "Index09",
@@ -5802,7 +5809,7 @@
       "issuance": "100",
       "score": "79c",
       "rarity_score": "Common",
-      "stamp_number": "1246775"
+      "stamp_number": "1246777"
     },
     {
       "index": "Index09",
@@ -5834,7 +5841,7 @@
       "issuance": "42",
       "score": "78c",
       "rarity_score": "Common",
-      "stamp_number": "1235053"
+      "stamp_number": "1235055"
     },
     {
       "index": "Index09",

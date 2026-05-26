@@ -678,17 +678,25 @@
                 thumb.classList.toggle('active', index === currentStampIndex);
             });
         }
-        async function fetchStampDescription(stampNumber) {
+        function getCPID(artwork) {
+            if (artwork?.cpid) return artwork.cpid;
+            // Extract CPID from buyLink like: https://stampchain.io/stamp/A6958452267252728000
+            const match = artwork?.buyLink?.match(/\/stamp\/(A\d+)/i);
+            return match ? match[1] : null;
+        }
+
+        async function fetchStampDescriptionByCPID(cpid) {
+            if (!cpid) return 'Error fetching stamp description: missing CPID';
             try {
-                const response = await fetch(`https://stampchain.io/api/v2/stamps/${stampNumber}`);
+                const response = await fetch(`https://stampchain.io/api/v2/stamps/${encodeURIComponent(cpid)}`);
                 if (!response.ok) {
-                    throw new Error('Failed to fetch stamp description');
+                    throw new Error(`Failed to fetch stamp description by CPID (${cpid})`);
                 }
                 const data = await response.json();
                 return JSON.stringify(data, null, 2); // Pretty-print JSON
             } catch (error) {
-                console.error('Error fetching stamp description:', error);
-                return 'Error fetching stamp description';
+                console.error('Error fetching stamp description by CPID:', error);
+                return `Error fetching stamp description for CPID ${cpid}`;
             }
         }
         async function generateRandomStamp() {
@@ -773,9 +781,9 @@
             }
             // Display original stamp details
             stampInfo.innerText = `${issuance}\n${artist}`;
-            // Fetch and display stamp description from API
-            const stampNumber = artwork.stamp.match(/\d+/)[0]; // Extract number from "Stamp# 631429"
-            const stampDescData = await fetchStampDescription(stampNumber);
+            // Fetch and display stamp description from API using CPID (not stamp number)
+            const cpid = getCPID(artwork);
+            const stampDescData = await fetchStampDescriptionByCPID(cpid);
             stampDescription.innerText = stampDescData;
             // Display stamp desc field
             stampDesc.innerText = desc;

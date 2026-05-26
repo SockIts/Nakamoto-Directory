@@ -1,0 +1,119 @@
+{
+  "checked": 420,
+  "updated": 16,
+  "errors": 0,
+  "changes": [
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp01",
+      "asset": "A11916112970230983000",
+      "from": "1216333",
+      "to": "1216335"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp02",
+      "asset": "A663377217873246993",
+      "from": "1218893",
+      "to": "1218895"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp03",
+      "asset": "A11382968031108952000",
+      "from": "1221273",
+      "to": "1221275"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp04",
+      "asset": "A12985919864543638000",
+      "from": "1215418",
+      "to": "1215420"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp05",
+      "asset": "A5388787404438221000",
+      "from": "1208766",
+      "to": "1208767"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp11",
+      "asset": "A409546000206804250",
+      "from": "1208710",
+      "to": "1208711"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp12",
+      "asset": "A12293026005812228000",
+      "from": "1208734",
+      "to": "1208735"
+    },
+    {
+      "index": "Index08",
+      "title": "Naka_Index08_Stamp18",
+      "asset": "A143440857660438011",
+      "from": "1225162",
+      "to": "1225164"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP02",
+      "asset": "A779619321701778843",
+      "from": "1251632",
+      "to": "1251634"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP03",
+      "asset": "A556561214579581254",
+      "from": "1265676",
+      "to": "1265678"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP07",
+      "asset": "A326391159817538196",
+      "from": "1200450",
+      "to": "1200451"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP08",
+      "asset": "A556337950478146060",
+      "from": "1221457",
+      "to": "1221459"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP10",
+      "asset": "A3672206914810621000",
+      "from": "1212311",
+      "to": "1212313"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP12",
+      "asset": "A410315700000000001",
+      "from": "1244605",
+      "to": "1244607"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP21",
+      "asset": "A404004040040400404",
+      "from": "1246775",
+      "to": "1246777"
+    },
+    {
+      "index": "Index09",
+      "title": "Naka_Index09_STAMP23",
+      "asset": "A1010101010100001010",
+      "from": "1235053",
+      "to": "1235055"
+    }
+  ]
+}
