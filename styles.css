@@ -43,6 +43,33 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Courie
 #pfp-preview { width: 100%; aspect-ratio: 1 / 1; border: 2px solid var(--line); display: block; background: #c5b7ad; overflow: hidden; position: relative; }
 #pfp-preview > img, #pfp-preview > iframe { width: 100%; height: 100%; display: block; border: 0; }
 #pfp-preview > img { object-fit: contain; }
+#pfp-preview.clickable { cursor: zoom-in; }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  z-index: 9999;
+  cursor: zoom-out;
+}
+.lightbox.open { display: flex; }
+.lightbox > img, .lightbox > iframe {
+  max-width: min(96vw, 1400px);
+  min-width: 50vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border: 2px solid #ddd;
+  background: #111;
+}
+.lightbox > img {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
 .action-btn { margin-top: 14px; width: 100%; height: 52px; border: none; border-radius: 5px; background: var(--btn); color: #e8ebf0; text-transform: uppercase; font-family: inherit; font-size: 28px; letter-spacing: 1px; font-weight: 700; cursor: pointer; }
 .action-btn:hover { background: var(--btn-hover); }
 .attrs { margin-top: 18px; border-top: 3px solid var(--line); padding-top: 14px; }

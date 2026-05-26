@@ -18,6 +18,22 @@ const lastBtn = document.getElementById('last-btn');
 const THEME_KEY = 'nsidirectory.theme';
 const PAGE_SIZE = 42;
 
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox';
+document.body.appendChild(lightbox);
+
+lightbox.addEventListener('click', () => {
+  lightbox.classList.remove('open');
+  lightbox.innerHTML = '';
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+    lightbox.classList.remove('open');
+    lightbox.innerHTML = '';
+  }
+});
+
 let assets = [];
 let indexes = [];
 let currentIndexPos = 0;
@@ -153,22 +169,19 @@ function createAssetElement(asset, className = 'library-tile') {
   const localSrc = `assets/${asset.file}`;
 
   if (isHtmlMime(asset)) {
-    const frame = document.createElement('iframe');
-    frame.className = className === 'library-tile' ? 'library-tile-frame' : className;
-    frame.loading = className === 'library-tile' ? 'lazy' : 'eager';
-    frame.referrerPolicy = 'no-referrer';
-    frame.setAttribute('title', `${asset.title} (${asset.asset})`);
-    frame.setAttribute('scrolling', 'no');
+    // HTML stamps often fail in iframes due to X-Frame-Options/CSP on remote hosts.
+    // Use static preview image so text/html assets render reliably.
+    const img = document.createElement('img');
+    img.className = className;
+    img.loading = className === 'library-tile' ? 'lazy' : 'eager';
+    img.src = localSrc || asset.preview_url || `https://api.stamped.ninja/assets/${asset.asset}.png`;
+    img.alt = `${asset.title} (${asset.asset})`;
 
-    const fallbackSrc = `https://api.stamped.ninja/assets/${asset.asset}.png`;
-    const preferFallback = Number(asset.bytes || 0) > 0 && Number(asset.bytes) < 12000;
-    const primarySrc = preferFallback ? fallbackSrc : (asset.preview_url || localSrc);
-    const escapedPrimary = primarySrc.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
-    const escapedFallback = fallbackSrc.replace(/&/g, '&amp;').replace(/"/g, '&quot;');
+    img.addEventListener('error', () => {
+      img.src = asset.preview_url || `https://api.stamped.ninja/assets/${asset.asset}.png`;
+    }, { once: true });
 
-    frame.srcdoc = `<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111}img{width:100%;height:100%;object-fit:contain;display:block}</style></head><body><img src="${escapedPrimary}" alt="${asset.asset}" onerror="if(this.dataset.fallback!=='1'){this.dataset.fallback='1';this.src='${escapedFallback}';}"></body></html>`;
-
-    return frame;
+    return img;
   }
 
   if (!isRenderableImageFile(asset)) {
@@ -190,14 +203,53 @@ function createAssetElement(asset, className = 'library-tile') {
   return img;
 }
 
-function setMainPreview(asset) {
-  preview.innerHTML = '';
-  preview.append(createAssetElement(asset, 'preview-asset'));
+function openLightboxFromPreview() {
+  const media = preview.firstElementChild;
+  if (!media) return;
+
+  const clone = media.cloneNode(true);
+  if (clone.tagName === 'IFRAME') clone.loading = 'eager';
+
+  lightbox.innerHTML = '';
+  lightbox.append(clone);
+  lightbox.classList.add('open');
 }
 
-function optionValues(getter) {
-  return [...new Set(assets.map(getter).map((v) => String(v ?? 'Unknown')))]
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+function setMainPreview(asset) {
+  preview.innerHTML = '';
+  const media = createAssetElement(asset, 'preview-asset');
+  preview.append(media);
+
+  preview.classList.add('clickable');
+  preview.onclick = openLightboxFromPreview;
+}
+
+function optionValues(getter, customSort = null) {
+  const values = [...new Set(assets.map(getter).map((v) => String(v ?? 'Unknown')))];
+  if (typeof customSort === 'function') return values.sort(customSort);
+  return values.sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+}
+
+function raritySort(a, b) {
+  const order = {
+    legendary: 0,
+    epic: 1,
+    rare: 2,
+    uncommon: 3,
+    common: 4,
+  };
+
+  const ai = order[String(a).trim().toLowerCase()];
+  const bi = order[String(b).trim().toLowerCase()];
+
+  const aKnown = ai !== undefined;
+  const bKnown = bi !== undefined;
+
+  if (aKnown && bKnown) return ai - bi;
+  if (aKnown) return -1;
+  if (bKnown) return 1;
+
+  return String(a).localeCompare(String(b), undefined, { numeric: true });
 }
 
 function makeSelectRow({ label, key, values }) {
@@ -250,7 +302,7 @@ function buildFilterControls() {
   filterControls.innerHTML = '';
   filterControls.append(
     makeSelectRow({ label: 'Artist', key: 'artist', values: optionValues((a) => artistValue(a)) }),
-    makeSelectRow({ label: 'Rarity', key: 'rarity', values: optionValues((a) => rarityValue(a)) }),
+    makeSelectRow({ label: 'Rarity', key: 'rarity', values: optionValues((a) => rarityValue(a), raritySort) }),
     makeSelectRow({ label: 'Mime Type', key: 'mime', values: optionValues((a) => humanMime(a)) }),
     makeSelectRow({ label: 'Indexes', key: 'index', values: indexes })
   );
