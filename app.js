@@ -217,8 +217,23 @@ function openLightboxFromPreview() {
 
 function setMainPreview(asset) {
   preview.innerHTML = '';
+
+  const stampShell = document.createElement('div');
+  stampShell.className = 'stamp-shell';
+
+  const stampRight = document.createElement('div');
+  stampRight.className = 'stamp-right';
+
+  const stampBottom = document.createElement('div');
+  stampBottom.className = 'stamp-bottom';
+
+  const stampMedia = document.createElement('div');
+  stampMedia.className = 'stamp-media';
+
   const media = createAssetElement(asset, 'preview-asset');
-  preview.append(media);
+  stampMedia.append(media);
+  stampShell.append(stampMedia, stampRight, stampBottom);
+  preview.append(stampShell);
 
   preview.classList.add('clickable');
   preview.onclick = openLightboxFromPreview;
